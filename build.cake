@@ -7,7 +7,7 @@ var settings = new DotNetCoreBuildSettings()
     Configuration = "Release",
     Sources = new List<string>() {"https://api.nuget.org/v3/index.json","https://pkgs.dev.azure.com/dnceng/public/_packaging/darc-pub-dotnet-runtime-6f411658/nuget/v3/index.json", "https://pkgs.dev.azure.com/dnceng/public/_packaging/darc-pub-dotnet-emsdk-1ec2e17f/nuget/v3/index.json"}
 };
-    DotNetCoreBuild("src/MAUI/TinyMvvm.Maui/TinyMvvm.Maui.csproj", settings);
+    DotNetCoreBuild("src/TinyMvvm.Maui/TinyMvvm.Maui.csproj", settings);
 });
 
 Task("Pack").IsDependentOn("Build").Does(() =>
@@ -20,7 +20,7 @@ Task("Pack").IsDependentOn("Build").Does(() =>
         Configuration = "Release",
         OutputDirectory = ".packages"
     };
-    DotNetCorePack("src/MAUI/TinyMvvm.Maui/TinyMvvm.Maui.csproj", settings);
+    DotNetCorePack("src/TinyMvvm.Maui/TinyMvvm.Maui.csproj", settings);
 });
 
 
