@@ -1,6 +1,6 @@
 ﻿namespace TinyMvvm.Sample;
 
-public partial class App
+public partial class App : TinyApplication
 {
 	public App()
 	{

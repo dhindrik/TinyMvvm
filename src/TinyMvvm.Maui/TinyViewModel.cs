@@ -6,8 +6,7 @@ namespace TinyMvvm;
 /// <summary>
 /// Base class for ViewModels. 
 /// </summary>
-[INotifyPropertyChanged]
-public abstract partial class TinyViewModel : ITinyViewModel, IQueryAttributable
+public abstract partial class TinyViewModel : ObservableObject,  ITinyViewModel, IQueryAttributable
 {
     private bool hasAppeared;
 
@@ -115,8 +114,6 @@ public abstract partial class TinyViewModel : ITinyViewModel, IQueryAttributable
             return !IsInitialized;
         }
     }
-
-    internal bool ReturningHasRun { get; set; }
 
     private const string TinyParameterKey = "tinyParameter";
     /// <inheritdoc />
