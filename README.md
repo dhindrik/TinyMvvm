@@ -28,6 +28,22 @@ public partial class App : TinyApplication
 }
 ```
 
+If you want to run code asynchronous when the app starts you can override the **Initialize** method of **TinyApplication**.
+
+```csharp
+public App()
+{
+	InitializeComponent();
+
+	MainPage = new AppShell();
+}
+
+protected override async Task Initialize()
+{
+        
+}
+```
+
 ### TinyView
 TinyMvvm has a base view called **TinyView** that you need to use if you want to use the overides from **TinyViewModel**. TinyView has ContentPage as it's base class so you can use it exactly as a normal ContentPage.
 

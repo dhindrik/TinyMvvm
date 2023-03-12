@@ -1,6 +1,4 @@
-﻿using TinyMvvm.Maui;
-
-namespace TinyMvvm;
+﻿namespace TinyMvvm;
 
 public abstract class TinyView : ContentPage
 {

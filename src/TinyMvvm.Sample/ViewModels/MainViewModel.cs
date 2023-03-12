@@ -37,7 +37,7 @@ public partial class MainViewModel : TinyViewModel
     private ICommand show;
     public ICommand Show => show ??= new RelayCommand<City>(async (city) =>
     {
-        await Navigation.NavigateTo($"{nameof(DetailsViewModel)}", city.Country);
+        await Navigation.NavigateTo($"{nameof(DetailsViewModel)}", city.Name);
     });
 
     [ObservableProperty]

@@ -1,5 +1,4 @@
-﻿using System;
-namespace TinyMvvm.Maui;
+﻿namespace TinyMvvm;
 
 internal static class TinyDispatcher
 {

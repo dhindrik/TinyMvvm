@@ -1,5 +1,4 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using TinyMvvm.Maui;
 
 namespace TinyMvvm;
 

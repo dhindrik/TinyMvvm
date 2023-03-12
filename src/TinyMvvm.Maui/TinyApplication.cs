@@ -30,6 +30,13 @@ public abstract class TinyApplication : Application, ITinyApplication
     public TinyApplication()
     {
         ApplicationResolver.Current = this;
+
+        TinyDispatcher.BeginInvokeOnMainThread(async () => await Initialize());
+    }
+
+    protected virtual Task Initialize()
+    {
+        return Task.CompletedTask;
     }
 
     protected override void OnResume()
