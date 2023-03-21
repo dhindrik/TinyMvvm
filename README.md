@@ -163,6 +163,9 @@ public override async Task OnParameterSet()
 #### IsBusy
 TinyViewModel has a **IsBusy** and a **IsNotBusy** property that you can use in your viewmodels and views. IsNotBusy is read-only and is updated when you set IsBusy.
 
+### Video
+In this video you can watch Daniel Hindrikes talk about TinyMvvm, https://youtu.be/kqsoG2Ii4w4.
+[![TinyMvvm on YouTube](https://user-images.githubusercontent.com/6691971/226563106-4bba3a4e-c64e-4bac-846f-c6f1c744a74a.png)](https://youtu.be/kqsoG2Ii4w4")
 
 
 ## Contribute
