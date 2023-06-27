@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Reflection.Metadata;
 
 namespace TinyMvvm;
 
@@ -14,7 +15,12 @@ public class TinyNavigation : INavigation
     /// <inheritdoc />
     public async Task NavigateTo(string key)
     {
-        await Shell.Current.GoToAsync(key);
+        var parameters = new Dictionary<string, object>
+        {
+            { "tinyEmpty", string.Empty }
+        };
+
+        await Shell.Current.GoToAsync(key, parameters);
 
     }
 
@@ -27,8 +33,10 @@ public class TinyNavigation : INavigation
             return;
         }
 
-        var parameters = new Dictionary<string, object>();
-        parameters.Add("tinyParameter", parameter);
+        var parameters = new Dictionary<string, object>
+        {
+            { "tinyParameter", parameter }
+        };
 
         await Shell.Current.GoToAsync(key, parameters);
     }

@@ -26,6 +26,11 @@ namespace TinyMvvm.Sample.ViewModels
             IsBusy = false;
         }
 
+        public override async Task OnParameterSet()
+        {
+            await base.OnParameterSet();
+        }
+
         [ObservableProperty]
         private ObservableCollection<City> cities = new ObservableCollection<City>();
 

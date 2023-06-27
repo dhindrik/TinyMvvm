@@ -115,11 +115,18 @@ public abstract partial class TinyViewModel : ObservableObject,  ITinyViewModel,
     }
 
     private const string TinyParameterKey = "tinyParameter";
+    private const string TinyEmptyKey = "tinyEmpty";
     /// <inheritdoc />
     public async void ApplyQueryAttributes(IDictionary<string, object> query)
     {
         if (query == null || query.Count == 0)
         {
+            return;
+        }
+
+        if(query.ContainsKey(TinyEmptyKey))
+        {
+            await RunOnParameterSet();
             return;
         }
 
@@ -149,6 +156,11 @@ public abstract partial class TinyViewModel : ObservableObject,  ITinyViewModel,
             QueryParameters = query;
         }
 
+        await RunOnParameterSet();
+    }
+
+    private async Task RunOnParameterSet()
+    {
         if (TinyDispatcher.IsMainThread)
         {
             await OnParameterSet();

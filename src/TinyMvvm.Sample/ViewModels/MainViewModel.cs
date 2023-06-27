@@ -34,6 +34,16 @@ public partial class MainViewModel : TinyViewModel
         IsBusy = false;
     });
 
+    private ICommand showList;
+    public ICommand ShowList => showList ??= new RelayCommand(async () =>
+    {
+        IsBusy = true;
+
+        await Navigation.NavigateTo(nameof(ListViewModel));
+
+        IsBusy = false;
+    });
+
     private ICommand show;
     public ICommand Show => show ??= new RelayCommand<City>(async (city) =>
     {

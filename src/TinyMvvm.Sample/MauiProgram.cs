@@ -35,6 +35,7 @@ public static class MauiProgram
         builder.Services.AddTransient<DetailsViewModel>();
 
 		Routing.RegisterRoute(nameof(DetailsViewModel), typeof(DetailsView));
+        Routing.RegisterRoute(nameof(ListViewModel), typeof(ListView));
 
         return builder.Build();
 	}
