@@ -15,6 +15,21 @@ public class TinyNavigation : INavigation
     /// <inheritdoc />
     public async Task NavigateTo(string key)
     {
+
+        //Check if there are parameters in the query string
+        if (key.Contains("?"))
+        {
+            var parts = key.Split("?");
+
+            if (parts[1].Length > 0)
+            {
+                await Shell.Current.GoToAsync(key);
+                return;
+            }
+        }
+
+
+        //If no querystring, add a empty parameter so OnParameterSet can be triggered
         var parameters = new Dictionary<string, object>
         {
             { "tinyEmpty", string.Empty }
