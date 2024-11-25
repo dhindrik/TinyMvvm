@@ -1,8 +1,7 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 using TinyMvvm.Sample.Models;
 using TinyMvvm.Sample.Services;
 
@@ -47,7 +46,7 @@ public partial class MainViewModel : TinyViewModel
     private ICommand show;
     public ICommand Show => show ??= new RelayCommand<City>(async (city) =>
     {
-        await Navigation.NavigateTo($"{nameof(DetailsViewModel)}", city.Name);
+        await Navigation.NavigateTo($"{nameof(DetailsViewModel)}", city);
     });
 
     [ObservableProperty]

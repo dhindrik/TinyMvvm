@@ -1,6 +1,4 @@
-﻿using System;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json;
 using TinyMvvm.Sample.Models;
 
 namespace TinyMvvm.Sample.Services;
@@ -28,7 +26,7 @@ public class CityService : ICityService
 
         var cities = await Load();
 
-        var result = cities.Single(x => x.Name == lowerText);
+        var result = cities.Single(x => x.Name.ToLower() == lowerText);
 
         return result;
     }
@@ -40,7 +38,7 @@ public class CityService : ICityService
 
     private async Task<List<City>> Load()
     {
-        if(cities != null)
+        if (cities != null)
         {
             return cities;
         }

@@ -10,17 +10,16 @@ jobs:
     # The type of runner that the job will run on
     runs-on: macos-latest
 
-
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '7.0.x'
+          dotnet-version: "8.0.x"
       - uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.0.x'
-          
+          dotnet-version: "9.0.x"
+
       - name: Install maui
         run: dotnet workload install maui
 
